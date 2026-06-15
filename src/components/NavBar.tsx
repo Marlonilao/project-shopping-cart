@@ -1,23 +1,120 @@
 import { Link } from 'react-router';
 
-const NavBar = () => {
+interface Props {
+  cartNumber: number;
+}
+
+const NavBar = ({ cartNumber }: Props) => {
   return (
-    <nav className='border-b border-gray-200 bg-white'>
-      <div className='flex items-center justify-between px-5 py-3 w-4/5 max-w-300 mx-auto'>
-        <div className='text-lg font-medium'>Fake Store</div>
-        <div className='flex gap-3'>
-          <button className='px-4 py-2 rounded-md border border-gray-200 hover:bg-gray-50'>
-            <Link to='/'>Home</Link>
-          </button>
-          <button className='px-4 py-2 rounded-md border border-gray-200 hover:bg-gray-50'>
-            <Link to='/shop'>Shop</Link>
-          </button>
-          <button className='px-4 py-2 rounded-md border border-gray-200 hover:bg-gray-50'>
-            <Link to='/cart'>Cart</Link>
+    <div className='max-lg:collapse bg-base-200 shadow-sm w-full rounded-md '>
+      <input id='navbar-1-toggle' className='peer hidden' type='checkbox' />
+      <label
+        htmlFor='navbar-1-toggle'
+        className='fixed inset-0 hidden max-lg:peer-checked:block'
+      ></label>
+      <div className='collapse-title navbar container'>
+        <div className='navbar-start'>
+          <label htmlFor='navbar-1-toggle' className='btn btn-ghost lg:hidden'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              className='h-5 w-5'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='2'
+                d='M4 6h16M4 12h8m-8 6h16'
+              />
+            </svg>
+          </label>
+          <button className='btn btn-ghost text-xl'>
+            <Link to='/'>Fake Store</Link>
           </button>
         </div>
+        <div className='navbar-center hidden lg:flex'>
+          <ul className='menu menu-horizontal px-1'>
+            <li>
+              <button>
+                <Link to='/shop'>Shop</Link>
+              </button>
+            </li>
+            <li>
+              <details>
+                <summary>Parent</summary>
+                <ul className='p-2 bg-base-100 w-40 z-1'>
+                  <li>
+                    <button>Submenu 1</button>
+                  </li>
+                  <li>
+                    <button>Submenu 2</button>
+                  </li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </div>
+        <div className='navbar-end mr-2'>
+          <div className='flex gap-2'>
+            <input
+              type='text'
+              placeholder='Search'
+              className='input input-bordered w-64 lg:w-auto'
+            />
+
+            <button
+              className='py-1 px-1 relative border-2 border-transparent text-gray-800 rounded-full hover:text-gray-400 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out'
+              aria-label='Cart'
+            >
+              <Link to='/cart'>
+                <svg
+                  className='h-6 w-6'
+                  fill='none'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'
+                >
+                  <path d='M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z'></path>
+                </svg>
+                <span className='absolute inset-0 object-top-right -mr-6'>
+                  {cartNumber > 0 && (
+                    <div className='inline-flex items-center px-1.5 py-0.5 border-2 border-white rounded-full text-xs font-semibold leading-4 bg-red-500 text-white'>
+                      {cartNumber}
+                    </div>
+                  )}
+                </span>
+              </Link>
+            </button>
+          </div>
+        </div>
       </div>
-    </nav>
+
+      <div className='collapse-content lg:hidden z-1'>
+        <ul className='menu'>
+          <li>
+            <button>Item 1</button>
+          </li>
+          <li>
+            <button>Parent</button>
+            <ul>
+              <li>
+                <button>Submenu 1</button>
+              </li>
+              <li>
+                <button>Submenu 2</button>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <button>Item 3</button>
+          </li>
+        </ul>
+      </div>
+    </div>
   );
 };
 
