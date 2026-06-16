@@ -30,29 +30,29 @@ const NavBar = ({ cartNumber }: Props) => {
               />
             </svg>
           </label>
-          <button className='btn btn-ghost text-xl'>
+          <button className='btn btn-ghost text-xl hidden md:block lg:block'>
             <Link to='/'>Fake Store</Link>
           </button>
         </div>
         <div className='navbar-center hidden lg:flex'>
           <ul className='menu menu-horizontal px-1'>
             <li>
-              <button>
-                <Link to='/shop'>Shop</Link>
-              </button>
+              <Link to='/shop'>Shop All</Link>
             </li>
             <li>
-              <details>
-                <summary>Parent</summary>
-                <ul className='p-2 bg-base-100 w-40 z-1'>
-                  <li>
-                    <button>Submenu 1</button>
-                  </li>
-                  <li>
-                    <button>Submenu 2</button>
-                  </li>
-                </ul>
-              </details>
+              <Link to='/shop/clothes'>Clothes</Link>
+            </li>
+            <li>
+              <Link to='/shop/electronics'>Electronics</Link>
+            </li>
+            <li>
+              <Link to='/shop/furniture'>Furniture</Link>
+            </li>
+            <li>
+              <Link to='/shop/shoes'>Shoes</Link>
+            </li>
+            <li>
+              <Link to='/shop/misc'>Misc</Link>
             </li>
           </ul>
         </div>
@@ -72,9 +72,9 @@ const NavBar = ({ cartNumber }: Props) => {
                 <svg
                   className='h-6 w-6'
                   fill='none'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
                   viewBox='0 0 24 24'
                   stroke='currentColor'
                 >
@@ -95,22 +95,26 @@ const NavBar = ({ cartNumber }: Props) => {
 
       <div className='collapse-content lg:hidden z-1'>
         <ul className='menu'>
-          <li>
-            <button>Item 1</button>
+          <li className='md:hidden'>
+            <button>Home</button>
           </li>
           <li>
-            <button>Parent</button>
-            <ul>
-              <li>
-                <button>Submenu 1</button>
-              </li>
-              <li>
-                <button>Submenu 2</button>
-              </li>
-            </ul>
+            <Link to='/shop'>Shop All</Link>
           </li>
           <li>
-            <button>Item 3</button>
+            <Link to='/shop/clothes'>Clothes</Link>
+          </li>
+          <li>
+            <Link to='/shop/electronics'>Electronics</Link>
+          </li>
+          <li>
+            <Link to='/shop/furniture'>Furniture</Link>
+          </li>
+          <li>
+            <Link to='/shop/shoes'>Shoes</Link>
+          </li>
+          <li>
+            <Link to='/shop/misc'>Misc</Link>
           </li>
         </ul>
       </div>
