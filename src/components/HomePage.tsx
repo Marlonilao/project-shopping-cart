@@ -10,7 +10,6 @@ import { Link, useOutletContext } from 'react-router';
 import Card from './Card';
 import { chooseRandomElements } from '../utility';
 import type { Product } from '../types';
-import Footer from './Footer';
 
 const HomePage = () => {
   const products: Product[] = useOutletContext<Product[]>();
@@ -92,8 +91,6 @@ const HomePage = () => {
           ))}
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };

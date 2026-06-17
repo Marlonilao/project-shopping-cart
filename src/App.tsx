@@ -2,7 +2,7 @@ import NavBar from './components/NavBar';
 import { Outlet } from 'react-router';
 import { useState, useEffect } from 'react';
 import type { Product } from './types.ts';
-import Footer from './Footer';
+import Footer from './components/Footer.tsx';
 
 const App = () => {
   const [data, setData] = useState<Product[]>([]);
@@ -48,9 +48,11 @@ const App = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
+    <div className='flex flex-col min-h-screen'>
       <NavBar cartNumber={userCart.length} />
-      <Outlet context={data} />
+      <main className='flex-1'>
+        <Outlet context={data} />
+      </main>
       <Footer />
     </div>
   );

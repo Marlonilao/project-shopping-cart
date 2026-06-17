@@ -14,8 +14,8 @@ const Card = ({ imageUrl, title, price }: Props) => {
       <div className='card-body flex flex-col justify-between'>
         <h2 className='card-title'>{title}</h2>
         <div className='card-actions justify-end items-center'>
-          <div className='badge badge-outline'>${price}</div>
-          <button className='btn btn-primary'>Buy Now</button>
+          <div className='badge badge-outline badge-lg'>${price}</div>
+          <button className='btn btn-neutral btn-sm'>Add to Cart</button>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ interface Props {
 
 const NavBar = ({ cartNumber }: Props) => {
   return (
-    <div className='max-lg:collapse bg-base-200 shadow-sm w-full rounded-md '>
+    <div className='max-lg:collapse bg-base-200 shadow-sm w-full rounded-md sticky top-0 z-50'>
       <input id='navbar-1-toggle' className='peer hidden' type='checkbox' />
       <label
         htmlFor='navbar-1-toggle'
@@ -40,19 +40,19 @@ const NavBar = ({ cartNumber }: Props) => {
               <Link to='/shop'>Shop All</Link>
             </li>
             <li>
-              <Link to='/shop/clothes'>Clothes</Link>
+              <Link to='/shop/1'>Clothes</Link>
             </li>
             <li>
-              <Link to='/shop/electronics'>Electronics</Link>
+              <Link to='/shop/2'>Electronics</Link>
             </li>
             <li>
-              <Link to='/shop/furniture'>Furniture</Link>
+              <Link to='/shop/3'>Furniture</Link>
             </li>
             <li>
-              <Link to='/shop/shoes'>Shoes</Link>
+              <Link to='/shop/4'>Shoes</Link>
             </li>
             <li>
-              <Link to='/shop/misc'>Misc</Link>
+              <Link to='/shop/5'>Misc</Link>
             </li>
           </ul>
         </div>
@@ -96,25 +96,25 @@ const NavBar = ({ cartNumber }: Props) => {
       <div className='collapse-content lg:hidden z-1'>
         <ul className='menu'>
           <li className='md:hidden'>
-            <button>Home</button>
+            <Link to='/'>Home</Link>
           </li>
           <li>
             <Link to='/shop'>Shop All</Link>
           </li>
           <li>
-            <Link to='/shop/clothes'>Clothes</Link>
+            <Link to='/shop/1'>Clothes</Link>
           </li>
           <li>
-            <Link to='/shop/electronics'>Electronics</Link>
+            <Link to='/shop/2'>Electronics</Link>
           </li>
           <li>
-            <Link to='/shop/furniture'>Furniture</Link>
+            <Link to='/shop/3'>Furniture</Link>
           </li>
           <li>
-            <Link to='/shop/shoes'>Shoes</Link>
+            <Link to='/shop/4'>Shoes</Link>
           </li>
           <li>
-            <Link to='/shop/misc'>Misc</Link>
+            <Link to='/shop/5'>Misc</Link>
           </li>
         </ul>
       </div>
