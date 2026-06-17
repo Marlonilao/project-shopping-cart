@@ -2,6 +2,7 @@ import NavBar from './components/NavBar';
 import { Outlet } from 'react-router';
 import { useState, useEffect } from 'react';
 import type { Product } from './types.ts';
+import Footer from './Footer';
 
 const App = () => {
   const [data, setData] = useState<Product[]>([]);
@@ -50,6 +51,7 @@ const App = () => {
     <div>
       <NavBar cartNumber={userCart.length} />
       <Outlet context={data} />
+      <Footer />
     </div>
   );
 };
