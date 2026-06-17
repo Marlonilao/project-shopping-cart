@@ -37,42 +37,52 @@ const HomePage = () => {
       </div>
 
       <div className='flex flex-col lg:flex-row justify-center items-center gap-4 p-4'>
-        <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
-          <Shirt size='64px' className='lg:hidden' />
-          <Shirt size='40px' className='hidden lg:block' />
-          <h3 className='text-4xl font-bold'>Clothes</h3>
-        </div>
+        <Link to='/shop/1'>
+          <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
+            <Shirt size='64px' className='lg:hidden' />
+            <Shirt size='40px' className='hidden lg:block' />
+            <h3 className='text-4xl font-bold'>Clothes</h3>
+          </div>
+        </Link>
 
         <div className='divider lg:divider-horizontal'></div>
 
-        <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
-          <LaptopMinimal size='64px' className='lg:hidden' />
-          <LaptopMinimal size='40px' className='hidden lg:block' />
-          <h3 className='text-4xl font-bold'>Electronics</h3>
-        </div>
+        <Link to='/shop/2'>
+          <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
+            <LaptopMinimal size='64px' className='lg:hidden' />
+            <LaptopMinimal size='40px' className='hidden lg:block' />
+            <h3 className='text-4xl font-bold'>Electronics</h3>
+          </div>
+        </Link>
 
         <div className='divider lg:divider-horizontal'></div>
 
-        <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
-          <Armchair size='64px' className='lg:hidden' />
-          <Armchair size='40px' className='hidden lg:block' />
-          <h3 className='text-4xl font-bold'>Furniture</h3>
-        </div>
+        <Link to='/shop/3'>
+          <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
+            <Armchair size='64px' className='lg:hidden' />
+            <Armchair size='40px' className='hidden lg:block' />
+            <h3 className='text-4xl font-bold'>Furniture</h3>
+          </div>
+        </Link>
 
         <div className='divider lg:divider-horizontal'></div>
 
-        <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
-          <SportShoe size='64px' className='lg:hidden' />
-          <SportShoe size='40px' className='hidden lg:block' />
-          <h3 className='text-4xl font-bold'>Shoes</h3>
-        </div>
+        <Link to='/shop/4'>
+          <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
+            <SportShoe size='64px' className='lg:hidden' />
+            <SportShoe size='40px' className='hidden lg:block' />
+            <h3 className='text-4xl font-bold'>Shoes</h3>
+          </div>
+        </Link>
 
         <div className='divider lg:divider-horizontal'></div>
 
-        <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
-          <LayoutGrid size='64px' />
-          <h3 className='text-4xl font-bold'>Misc</h3>
-        </div>
+        <Link to='/shop/5'>
+          <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
+            <LayoutGrid size='64px' />
+            <h3 className='text-4xl font-bold'>Misc</h3>
+          </div>
+        </Link>
       </div>
 
       <div className='px-4 py-8 container'>
