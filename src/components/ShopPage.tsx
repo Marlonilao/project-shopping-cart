@@ -1,6 +1,6 @@
-import type { Product } from '../../types';
+import type { Product } from '..//types';
 import { useOutletContext, useSearchParams, useParams } from 'react-router';
-import Card from '../Card';
+import Card from './Card';
 
 const PER_PAGE = 12;
 
@@ -14,11 +14,16 @@ const SORT_OPTIONS = [
 
 const ShopPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const products: Product[] = useOutletContext<Product[]>();
+  const { data, addToCart, userCart, removeFromCart } = useOutletContext<{
+    data: Product[];
+    addToCart: (product: Product) => void;
+    userCart: Product[];
+    removeFromCart: (product: Product) => void;
+  }>();
   const { category } = useParams();
   const filtered = category
-    ? products.filter((p) => p.category.id === Number(category))
-    : products;
+    ? data.filter((p) => p.category.slug === category)
+    : data;
   const currentPage = Math.max(1, Number(searchParams.get('page')) || 1);
   const currentSort = searchParams.get('sort') || 'default';
   const sorted = [...filtered].sort((a, b) => {
@@ -52,10 +57,11 @@ const ShopPage = () => {
     <div>
       <div className='container'>
         <div className='py-6'>
-          <h1 className='text-2xl font-bold'>All products</h1>
-          <p className='text-base'>
-            Clothes, electronics, shoes, furniture & more
-          </p>
+          <h1 className='text-2xl font-bold'>
+            {category
+              ? category.charAt(0).toUpperCase() + category.slice(1)
+              : 'All Products'}
+          </h1>
         </div>
         <div>
           <div className='flex items-center justify-between'>
@@ -78,11 +84,13 @@ const ShopPage = () => {
           <div className='grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 px-4 py-6'>
             {pageItems.map((item) => (
               <Card
+                key={item.id}
                 imageUrl={item.images[0]}
                 title={item.title}
-                description={item.description}
                 price={item.price}
-                key={item.id}
+                qty={userCart.filter((p) => p.id === item.id).length}
+                handleAddToCart={() => addToCart(item)}
+                handleRemoveFromCart={() => removeFromCart(item)}
               />
             ))}
           </div>

@@ -1,11 +1,13 @@
 import type { Product } from './types';
 
-export const chooseRandomElements = (
-  array: Product[],
-  n: number = 5,
-): Product[] => {
-  if (array.length < n) {
-    throw new Error(`Array must have at least ${n} elements.`);
-  }
-  return [...array].sort(() => Math.random() - 0.5).slice(0, n);
+export const getOneProductPerCategory = (products: Product[]): Product[] => {
+  const productsByCategory = new Map<number, Product>();
+
+  products.forEach((product) => {
+    if (!productsByCategory.has(product.category.id)) {
+      productsByCategory.set(product.category.id, product);
+    }
+  });
+
+  return Array.from(productsByCategory.values());
 };

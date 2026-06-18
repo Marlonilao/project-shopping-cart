@@ -5,7 +5,8 @@ import App from './App.tsx';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import ErrorPage from './components/ErrorPage.tsx';
 import HomePage from './components/HomePage.tsx';
-import ShopPage from './components/shop-page/ShopPage.tsx';
+import ShopPage from './components/ShopPage.tsx';
+import CartPage from './components/CartPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: '/shop/:category',
         element: <ShopPage />,
+      },
+      {
+        path: '/cart',
+        element: <CartPage />, // Placeholder, replace with CartPage when implemented
       },
     ],
   },

@@ -8,12 +8,22 @@ import {
 } from 'lucide-react';
 import { Link, useOutletContext } from 'react-router';
 import Card from './Card';
-import { chooseRandomElements } from '../utility';
+import { getOneProductPerCategory } from '../utility';
 import type { Product } from '../types';
 
 const HomePage = () => {
-  const products: Product[] = useOutletContext<Product[]>();
-  const featuredProducts = chooseRandomElements(products);
+  const {
+    data,
+    addToCart,
+    userCart,
+    removeFromCart,
+  }: {
+    data: Product[];
+    addToCart: (product: Product) => void;
+    userCart: Product[];
+    removeFromCart: (product: Product) => void;
+  } = useOutletContext();
+  const featuredProducts = getOneProductPerCategory(data);
 
   return (
     <div>
@@ -37,7 +47,7 @@ const HomePage = () => {
       </div>
 
       <div className='flex flex-col lg:flex-row justify-center items-center gap-4 p-4'>
-        <Link to='/shop/1'>
+        <Link to='/shop/clothes'>
           <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
             <Shirt size='64px' className='lg:hidden' />
             <Shirt size='40px' className='hidden lg:block' />
@@ -47,7 +57,7 @@ const HomePage = () => {
 
         <div className='divider lg:divider-horizontal'></div>
 
-        <Link to='/shop/2'>
+        <Link to='/shop/electronics'>
           <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
             <LaptopMinimal size='64px' className='lg:hidden' />
             <LaptopMinimal size='40px' className='hidden lg:block' />
@@ -57,7 +67,7 @@ const HomePage = () => {
 
         <div className='divider lg:divider-horizontal'></div>
 
-        <Link to='/shop/3'>
+        <Link to='/shop/furniture'>
           <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
             <Armchair size='64px' className='lg:hidden' />
             <Armchair size='40px' className='hidden lg:block' />
@@ -67,7 +77,7 @@ const HomePage = () => {
 
         <div className='divider lg:divider-horizontal'></div>
 
-        <Link to='/shop/4'>
+        <Link to='/shop/shoes'>
           <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
             <SportShoe size='64px' className='lg:hidden' />
             <SportShoe size='40px' className='hidden lg:block' />
@@ -77,7 +87,7 @@ const HomePage = () => {
 
         <div className='divider lg:divider-horizontal'></div>
 
-        <Link to='/shop/5'>
+        <Link to='/shop/miscellaneous'>
           <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
             <LayoutGrid size='64px' />
             <h3 className='text-4xl font-bold'>Misc</h3>
@@ -92,11 +102,13 @@ const HomePage = () => {
         <div className='flex flex-col lg:flex-row justify-center items-center gap-8 lg:items-stretch'>
           {featuredProducts.map((product) => (
             <Card
+              key={product.id}
               imageUrl={product.images[0]}
               title={product.title}
-              description={product.description}
               price={product.price}
-              key={product.id}
+              qty={userCart.filter((p) => p.id === product.id).length}
+              handleAddToCart={() => addToCart(product)}
+              handleRemoveFromCart={() => removeFromCart(product)}
             />
           ))}
         </div>

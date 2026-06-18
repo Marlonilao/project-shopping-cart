@@ -10,6 +10,16 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const addToCart = (product: Product) => {
+    setUserCart((prevCart) => [...prevCart, product]);
+  };
+  const removeFromCart = (product: Product) => {
+    setUserCart((prev) => {
+      const index = prev.findIndex((p) => p.id === product.id);
+      if (index === -1) return prev;
+      return prev.filter((_, i) => i !== index);
+    });
+  };
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -51,7 +61,7 @@ const App = () => {
     <div className='flex flex-col min-h-screen'>
       <NavBar cartNumber={userCart.length} />
       <main className='flex-1'>
-        <Outlet context={data} />
+        <Outlet context={{ data, addToCart, userCart, removeFromCart }} />
       </main>
       <Footer />
     </div>

@@ -40,19 +40,19 @@ const NavBar = ({ cartNumber }: Props) => {
               <Link to='/shop'>Shop All</Link>
             </li>
             <li>
-              <Link to='/shop/1'>Clothes</Link>
+              <Link to='/shop/clothes'>Clothes</Link>
             </li>
             <li>
-              <Link to='/shop/2'>Electronics</Link>
+              <Link to='/shop/electronics'>Electronics</Link>
             </li>
             <li>
-              <Link to='/shop/3'>Furniture</Link>
+              <Link to='/shop/furniture'>Furniture</Link>
             </li>
             <li>
-              <Link to='/shop/4'>Shoes</Link>
+              <Link to='/shop/shoes'>Shoes</Link>
             </li>
             <li>
-              <Link to='/shop/5'>Misc</Link>
+              <Link to='/shop/miscellaneous'>Misc</Link>
             </li>
           </ul>
         </div>
@@ -102,19 +102,19 @@ const NavBar = ({ cartNumber }: Props) => {
             <Link to='/shop'>Shop All</Link>
           </li>
           <li>
-            <Link to='/shop/1'>Clothes</Link>
+            <Link to='/shop/clothes'>Clothes</Link>
           </li>
           <li>
-            <Link to='/shop/2'>Electronics</Link>
+            <Link to='/shop/electronics'>Electronics</Link>
           </li>
           <li>
-            <Link to='/shop/3'>Furniture</Link>
+            <Link to='/shop/furniture'>Furniture</Link>
           </li>
           <li>
-            <Link to='/shop/4'>Shoes</Link>
+            <Link to='/shop/shoes'>Shoes</Link>
           </li>
           <li>
-            <Link to='/shop/5'>Misc</Link>
+            <Link to='/shop/miscellaneous'>Misc</Link>
           </li>
         </ul>
       </div>
