@@ -48,7 +48,7 @@ const HomePage = () => {
 
       <div className='flex flex-col lg:flex-row justify-center items-center gap-4 p-4'>
         <Link to='/shop/clothes'>
-          <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
+          <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto transition-transform duration-300 ease-in-out hover:scale-110'>
             <Shirt size='64px' className='lg:hidden' />
             <Shirt size='40px' className='hidden lg:block' />
             <h3 className='text-4xl font-bold'>Clothes</h3>
@@ -58,7 +58,7 @@ const HomePage = () => {
         <div className='divider lg:divider-horizontal'></div>
 
         <Link to='/shop/electronics'>
-          <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
+          <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto transition-transform duration-300 ease-in-out hover:scale-110'>
             <LaptopMinimal size='64px' className='lg:hidden' />
             <LaptopMinimal size='40px' className='hidden lg:block' />
             <h3 className='text-4xl font-bold'>Electronics</h3>
@@ -68,7 +68,7 @@ const HomePage = () => {
         <div className='divider lg:divider-horizontal'></div>
 
         <Link to='/shop/furniture'>
-          <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
+          <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto transition-transform duration-300 ease-in-out hover:scale-110'>
             <Armchair size='64px' className='lg:hidden' />
             <Armchair size='40px' className='hidden lg:block' />
             <h3 className='text-4xl font-bold'>Furniture</h3>
@@ -78,7 +78,7 @@ const HomePage = () => {
         <div className='divider lg:divider-horizontal'></div>
 
         <Link to='/shop/shoes'>
-          <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
+          <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto transition-transform duration-300 ease-in-out hover:scale-110'>
             <SportShoe size='64px' className='lg:hidden' />
             <SportShoe size='40px' className='hidden lg:block' />
             <h3 className='text-4xl font-bold'>Shoes</h3>
@@ -88,7 +88,7 @@ const HomePage = () => {
         <div className='divider lg:divider-horizontal'></div>
 
         <Link to='/shop/miscellaneous'>
-          <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto'>
+          <div className='flex flex-col justify-center items-center gap-2 p-8 w-full lg:w-auto transition-transform duration-300 ease-in-out hover:scale-110'>
             <LayoutGrid size='64px' />
             <h3 className='text-4xl font-bold'>Misc</h3>
           </div>

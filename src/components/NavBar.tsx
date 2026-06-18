@@ -1,10 +1,22 @@
 import { Link } from 'react-router';
+import { useNavigate, useSearchParams } from 'react-router';
 
 interface Props {
   cartNumber: number;
 }
 
 const NavBar = ({ cartNumber }: Props) => {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value.trim()) {
+      navigate(`/shop?search=${encodeURIComponent(value)}&page=1`);
+    } else {
+      navigate('/shop');
+    }
+  };
   return (
     <div className='max-lg:collapse bg-base-200 shadow-sm w-full rounded-md sticky top-0 z-50'>
       <input id='navbar-1-toggle' className='peer hidden' type='checkbox' />
@@ -61,6 +73,8 @@ const NavBar = ({ cartNumber }: Props) => {
             <input
               type='text'
               placeholder='Search'
+              defaultValue={searchParams.get('search') ?? ''}
+              onChange={handleSearch}
               className='input input-bordered w-64 lg:w-auto'
             />
 

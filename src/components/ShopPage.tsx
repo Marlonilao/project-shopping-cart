@@ -21,12 +21,16 @@ const ShopPage = () => {
     removeFromCart: (product: Product) => void;
   }>();
   const { category } = useParams();
+  const currentSearch = searchParams.get('search')?.toLowerCase() ?? '';
   const filtered = category
     ? data.filter((p) => p.category.slug === category)
     : data;
+  const searched = currentSearch
+    ? filtered.filter((p) => p.title.toLowerCase().includes(currentSearch))
+    : filtered;
   const currentPage = Math.max(1, Number(searchParams.get('page')) || 1);
   const currentSort = searchParams.get('sort') || 'default';
-  const sorted = [...filtered].sort((a, b) => {
+  const sorted = [...searched].sort((a, b) => {
     switch (currentSort) {
       case 'price_asc':
         return a.price - b.price;
@@ -41,16 +45,24 @@ const ShopPage = () => {
     }
   });
   const start = (currentPage - 1) * PER_PAGE;
-  const totalPages = Math.ceil(sorted.length / PER_PAGE); // was filtered
+  const totalPages = Math.ceil(searched.length / PER_PAGE); // was filtered
   const pageItems = sorted.slice(start, start + PER_PAGE); // was filtered
 
   const goTo = (page: number) => {
-    setSearchParams({ page: page.toString(), sort: currentSort }); // added sort
+    setSearchParams({
+      page: page.toString(),
+      sort: currentSort,
+      ...(currentSearch && { search: currentSearch }),
+    });
     window.scrollTo(0, 0);
   };
 
   const handleSort = (value: string) => {
-    setSearchParams({ page: '1', sort: value });
+    setSearchParams({
+      page: '1',
+      sort: value,
+      ...(currentSearch && { search: currentSearch }),
+    });
   };
 
   return (

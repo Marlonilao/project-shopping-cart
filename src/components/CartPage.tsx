@@ -75,7 +75,7 @@ const CartPage = () => {
               <span>${total.toFixed(2)}</span>
             </div>
 
-            <button className='btn btn-primary w-full mt-2'>
+            <button className='btn btn-neutral w-full mt-2'>
               Proceed to Checkout
             </button>
 
