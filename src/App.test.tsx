@@ -26,7 +26,7 @@ describe('App', () => {
 
     render(<RouterProvider router={router} />);
 
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
+    expect(document.querySelector('.loading-spinner')).toBeInTheDocument();
   });
 
   it('shows error state when fetch fails', async () => {
@@ -71,8 +71,12 @@ describe('App', () => {
     render(<RouterProvider router={router} />);
 
     await waitFor(() => {
-      expect(screen.getByRole('link', { name: 'Fake Store' })).toBeInTheDocument();
+      expect(
+        screen.getByRole('link', { name: 'Fake Store' }),
+      ).toBeInTheDocument();
     });
-    expect(screen.getByRole('heading', { name: 'Loaded Product' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Loaded Product' }),
+    ).toBeInTheDocument();
   });
 });
