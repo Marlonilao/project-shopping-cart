@@ -54,8 +54,27 @@ const App = () => {
     loadData();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading)
+    return (
+      <div className='flex flex-col min-h-screen'>
+        <NavBar cartNumber={userCart.length} />
+        <main className='flex-1 flex items-center justify-center'>
+          <span className='loading loading-spinner loading-xl'></span>
+        </main>
+        <Footer />
+      </div>
+    );
+
+  if (error)
+    return (
+      <div>
+        <NavBar cartNumber={userCart.length} />
+        <main className='flex-1 flex items-center justify-center'>
+          <p>Error: {error}</p>
+        </main>
+        <Footer />
+      </div>
+    );
 
   return (
     <div className='flex flex-col min-h-screen'>
