@@ -1,73 +1,24 @@
-# React + TypeScript + Vite
+# Shopping Cart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mock e-commerce shopping cart app built as part of [The Odin Project's](https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart) React course.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Home, Shop, and Cart pages** with navigation handled by React Router
+- Product cards on the Shop page with quantity input, increment/decrement controls, and an "Add to Cart" button
+- Real-time cart item count in the navbar
+- Cart page with the ability to update quantities or remove items
+- Products fetched live from the [Platzi Fake Store API](https://fakeapi.platzi.com/)
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Router](https://reactrouter.com/)
+- [Tailwind CSS](https://tailwindcss.com/) + [daisyUI](https://daisyui.com/) for styling
+- [Lucide React](https://lucide.dev/) for icons
+- [Platzi Fake Store API](https://fakeapi.platzi.com/) for product data
 
-## Expanding the ESLint configuration
+## License
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+This project is for educational purposes as part of The Odin Project curriculum.
