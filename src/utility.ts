@@ -9,5 +9,5 @@ export const getOneProductPerCategory = (products: Product[]): Product[] => {
     }
   });
 
-  return Array.from(productsByCategory.values());
+  return Array.from(productsByCategory.values()).slice(0, 5);
 };
